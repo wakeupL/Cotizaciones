@@ -16,6 +16,7 @@ class CreateCotizacionTable extends Migration
         Schema::create('cotizacion', function (Blueprint $table) {
             $table->id();
             $table->string('cliente');
+            $table->string('estado');
             $table->timestamps();
         });
     }

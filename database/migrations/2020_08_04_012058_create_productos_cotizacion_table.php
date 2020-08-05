@@ -21,10 +21,11 @@ class CreateProductosCotizacionTable extends Migration
             $table->string('total_neto');
             $table->string('entrega');
             $table->string('id_cotizacion');
+            $table->string('estado');
             $table->timestamps();
         });
     }
-    
+
     /**
      * Reverse the migrations.
      *
