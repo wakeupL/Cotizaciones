@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Cotizacion;
+use DateTime;
+use laracast\flash;
+use Illuminate\Support\Facades\DB;
 
 class CotizacionController extends Controller
 {
@@ -13,7 +17,10 @@ class CotizacionController extends Controller
      */
     public function index()
     {
-        //
+      $cotizaciones = DB::table('clientes')
+                      ->join('cotizacion', 'clientes.id','=','cotizacion.cliente')
+                      ->get();
+        return view('cotizaciones',['cotizaciones' => $cotizaciones]);
     }
 
     /**
@@ -34,7 +41,15 @@ class CotizacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $now = new datetime();
+        $cotizacion = new Cotizacion();
+        $cotizacion->cliente = $request->id;
+        $cotizacion->estado = '0';
+        $cotizacion->created_at = $now;
+
+        $cotizacion->save();
+        Flash('Se ha generado una nueva cotización')->success();
+        return redirect()->route('cotizacion.index');
     }
 
     /**

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Clientes;
+use Illuminate\Support\Facades\DB;
+use DateTime;
+use laracast\Flash;
 
 class ClientesController extends Controller
 {
@@ -13,7 +17,8 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        //
+        $clientes = Clientes::get()->all();
+        return view('clientes', ['clientes' => $clientes]);
     }
 
     /**
@@ -23,7 +28,7 @@ class ClientesController extends Controller
      */
     public function create()
     {
-        //
+        return view('crear_cliente');
     }
 
     /**
@@ -34,7 +39,20 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $now = new DateTime();
+      $nuevoCliente = new Clientes();
+      $nuevoCliente->nombre = $request->representante;
+      $nuevoCliente->empresa = $request->empresa;
+      $nuevoCliente->rut = $request->rut;
+      $nuevoCliente->correo = $request->correo;
+      $nuevoCliente->telefono = $request->telefono;
+      $nuevoCliente->estado = '0';
+      $nuevoCliente->created_at = $now;
+
+      $nuevoCliente->save();
+      flash('Se ha creado nuevo cliente.')->success();
+      return redirect()->route('clientes.index');
+
     }
 
     /**
@@ -79,6 +97,14 @@ class ClientesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $now = new datetime();
+        $cliente = Clientes::find($id);
+        $cliente->estado = '1';
+        $cliente->updated_at = $now;
+
+        $cliente->save();
+        flash('Se ha eliminado el cliente correctamente.')->success();
+        return redirect()->route('clientes.index');
+
     }
 }

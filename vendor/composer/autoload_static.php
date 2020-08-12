@@ -34,6 +34,7 @@ class ComposerStaticInit76638055af0bab2a97249b1c6316a048
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
+        'e23faeee409e941dc9b4c80386209c39' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -477,6 +478,13 @@ class ComposerStaticInit76638055af0bab2a97249b1c6316a048
                 0 => __DIR__ . '/..' . '/mockery/mockery/library',
             ),
         ),
+        'L' => 
+        array (
+            'Laracasts\\Flash' => 
+            array (
+                0 => __DIR__ . '/..' . '/laracasts/flash/src',
+            ),
+        ),
         'H' => 
         array (
             'Highlight\\' => 
@@ -491,7 +499,9 @@ class ComposerStaticInit76638055af0bab2a97249b1c6316a048
     );
 
     public static $classMap = array (
+        'App\\Clientes' => __DIR__ . '/../..' . '/app/Clientes.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Cotizacion' => __DIR__ . '/../..' . '/app/Cotizacion.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -499,8 +509,13 @@ class ComposerStaticInit76638055af0bab2a97249b1c6316a048
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
+        'App\\Http\\Controllers\\ClientesController' => __DIR__ . '/../..' . '/app/Http/Controllers/ClientesController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\CotizacionController' => __DIR__ . '/../..' . '/app/Http/Controllers/CotizacionController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\ProductosController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductosController.php',
+        'App\\Http\\Controllers\\ProductosCotizacion' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductosCotizacion.php',
+        'App\\Http\\Controllers\\ProductosCotizacionController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductosCotizacionController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
@@ -510,6 +525,8 @@ class ComposerStaticInit76638055af0bab2a97249b1c6316a048
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Productos' => __DIR__ . '/../..' . '/app/Productos.php',
+        'App\\ProductosCotizacion' => __DIR__ . '/../..' . '/app/ProductosCotizacion.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -2397,6 +2414,13 @@ class ComposerStaticInit76638055af0bab2a97249b1c6316a048
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
+        'Laracasts\\Flash\\Flash' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/Flash.php',
+        'Laracasts\\Flash\\FlashNotifier' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/FlashNotifier.php',
+        'Laracasts\\Flash\\FlashServiceProvider' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/FlashServiceProvider.php',
+        'Laracasts\\Flash\\LaravelSessionStore' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/LaravelSessionStore.php',
+        'Laracasts\\Flash\\Message' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/Message.php',
+        'Laracasts\\Flash\\OverlayMessage' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/OverlayMessage.php',
+        'Laracasts\\Flash\\SessionStore' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/SessionStore.php',
         'Laravel\\Tinker\\ClassAliasAutoloader' => __DIR__ . '/..' . '/laravel/tinker/src/ClassAliasAutoloader.php',
         'Laravel\\Tinker\\Console\\TinkerCommand' => __DIR__ . '/..' . '/laravel/tinker/src/Console/TinkerCommand.php',
         'Laravel\\Tinker\\TinkerCaster' => __DIR__ . '/..' . '/laravel/tinker/src/TinkerCaster.php',

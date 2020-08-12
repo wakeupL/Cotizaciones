@@ -20,3 +20,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('clientes', 'ClientesController');
+Route::get('clientes/{id}/destroy', [
+		'uses'	=> 'ClientesController@destroy',
+		'as'	=> 'clientes.destroy'
+	]);
+Route::resource('productos', 'ProductosController');
+Route::get('productos/{id}/destroy', [
+		'uses'	=> 'ProductosController@destroy',
+		'as'	=> 'productos.destroy'
+	]);
+Route::resource('cotizacion', 'CotizacionController');
+Route::resource('alistarProductos', 'ProductosCotizacionController');

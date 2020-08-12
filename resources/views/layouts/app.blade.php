@@ -18,6 +18,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/jquery.dataTables.css')}}">
 </head>
 <body>
     <div id="app">
@@ -41,12 +43,12 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Ingresar') }}</a>
                             </li>
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                <!--<li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
+                                </li>-->
                             @endif
                         @else
                             <li class="nav-item dropdown">
@@ -73,8 +75,22 @@
         </nav>
 
         <main class="py-4">
+          @include('includes.menu')
             @yield('content')
         </main>
     </div>
+<script src="{{asset('js/core/jquery.min.js')}}" charset="utf-8"></script>
+<script src="{{asset('js/core/popper.min.js')}}" charset="utf-8"></script>
+<script src="{{asset('js/core/bootstrap.min.js')}}" charset="utf-8"></script>
+<script src="{{asset('js/core/jquery.dataTables.min.js')}}" charset="utf-8"></script>
+<script>
+$.noConflict();
+jQuery( document ).ready(function( $ ) {
+    $('#clientes').DataTable();
+});
+jQuery( document ).ready(function( $ ) {
+    $('#productos').DataTable();
+});
+</script>
 </body>
 </html>

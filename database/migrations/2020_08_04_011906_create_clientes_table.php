@@ -18,7 +18,8 @@ class CreateClientesTable extends Migration
             $table->string('nombre');
             $table->string('empresa');
             $table->string('rut');
-            $table->string('telefono');
+            $table->string('direccion')->nullable($value = true);
+            $table->string('telefono')->nullable($value = true);
             $table->string('correo');
             $table->string('estado');
             $table->timestamps();

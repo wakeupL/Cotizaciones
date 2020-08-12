@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Clientes;
+use App\ProductosCotizacion;
+use App\Cotizacion;
+use Illuminate\Support\Facades\DB;
+use DateTime;
+use laracast\Flash;
 
 class ProductosCotizacionController extends Controller
 {
@@ -45,7 +51,11 @@ class ProductosCotizacionController extends Controller
      */
     public function show($id)
     {
-        //
+        $infoGeneral = DB::table('clientes')
+                          ->join('cotizacion', 'clientes.id','=','cotizacion.cliente')
+                          ->where('cotizacion.id','=', $id)
+                          ->get();
+        return view('alistarProductos', ['infoGeneral' => $infoGeneral]);
     }
 
     /**

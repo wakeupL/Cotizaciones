@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Productos;
+use DateTime;
+use laracast\flash;
+use Illuminate\Support\Facades\DB;
 
 class ProductosController extends Controller
 {
@@ -13,7 +17,8 @@ class ProductosController extends Controller
      */
     public function index()
     {
-        //
+        $productos = Productos::get()->all();
+        return view('productos', ['productos' => $productos]);
     }
 
     /**
@@ -34,7 +39,15 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $now = new datetime();
+      $nuevoProducto = new Productos();
+      $nuevoProducto->producto = $request->nombre;
+      $nuevoProducto->estado = '0';
+      $nuevoProducto->created_at = $now;
+
+      $nuevoProducto->save();
+      flash('Se ha guardado un nuevo producto.')->success();
+      return redirect()->route('productos.index');
     }
 
     /**
@@ -68,7 +81,15 @@ class ProductosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $now = new datetime();
+        $id = $request->id;
+        $producto = Productos::find($id);
+        $producto->producto = $request->nombre;
+        $producto->updated_at = $now;
+
+        $producto->save();
+        flash('Se ha modificado correctamente.')->success();
+        return redirect()->route('productos.index');
     }
 
     /**
@@ -79,6 +100,11 @@ class ProductosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $producto = Productos::find($id);
+        $producto->estado = '1';
+
+        $producto->save();
+        flash('Se ha eliminado correctamente.')->success();
+        return redirect()->route('productos.index');
     }
 }
