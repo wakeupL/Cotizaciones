@@ -51,8 +51,8 @@
                                 </li>-->
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
@@ -91,6 +91,10 @@ jQuery( document ).ready(function( $ ) {
 jQuery( document ).ready(function( $ ) {
     $('#productos').DataTable();
 });
+    jQuery( document ).ready(function( $ ) {
+    $('.dropdown-toggle').dropdown();
+});
+
 </script>
 </body>
 </html>

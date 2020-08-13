@@ -13,24 +13,11 @@
                     @foreach($infoGeneral as $info)
                       {{$info->id}}
                       {{$info->nombre}}
-                      <table class="table table-bordered">
-                        <thead>
-                          <tr>
-                            <th>FOLIO</th>
-                            <th>Nombre</th>
-                            <th>Empresa</th>
-                            <th>RUT</th>
-                            <th>E-mail</th>
-                            <th>Dirección</th>
-                            <th>Teléfono</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            
-                          </tr>
-                        </tbody>
-                      </table>
+                      {{$info->empresa}}
+                      {{$info->rut}}
+                      {{$info->direccion}}
+                      {{$info->telefono}}
+                      {{$info->correo}}
                     @endforeach
 
                 </div>

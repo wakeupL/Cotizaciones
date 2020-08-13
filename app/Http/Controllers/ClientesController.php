@@ -10,6 +10,15 @@ use laracast\Flash;
 
 class ClientesController extends Controller
 {
+        /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -45,6 +54,7 @@ class ClientesController extends Controller
       $nuevoCliente->empresa = $request->empresa;
       $nuevoCliente->rut = $request->rut;
       $nuevoCliente->correo = $request->correo;
+      $nuevoCliente->direccion = $request->direccion;
       $nuevoCliente->telefono = $request->telefono;
       $nuevoCliente->estado = '0';
       $nuevoCliente->created_at = $now;
