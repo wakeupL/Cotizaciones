@@ -54,7 +54,7 @@ class CotizacionController extends Controller
         $cotizacion = new Cotizacion();
         $cotizacion->cliente = $request->id;
         $cotizacion->estado = '0';
-        $cotizacion->created_at = $now;
+        $cotizacion->created_at = $now->format('d-m-Y');
 
         $cotizacion->save();
         Flash('Se ha generado una nueva cotización')->success();

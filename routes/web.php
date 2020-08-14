@@ -34,3 +34,13 @@ Route::get('productos/{id}/destroy', [
 	]);
 Route::resource('cotizacion', 'CotizacionController');
 Route::resource('alistarProductos', 'ProductosCotizacionController');
+
+Route::post('additem', [
+    'uses' => 'ProductosCotizacionController@addItem',
+    'as' => 'add.item'
+]);
+
+Route::post('getPdf', [
+    'uses' => 'ProductosCotizacionController@getPdf',
+    'as' => 'getPdf'
+]);
