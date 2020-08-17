@@ -27,7 +27,7 @@
             </div>
           </nav>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-12 mt-2">
           @include('flash::message')
         </div>
       </div>

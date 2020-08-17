@@ -26,7 +26,6 @@
                         <tr>
                           <th>Folio</th>
                           <th>Cliente</th>
-
                           <th>#</th>
                         </tr>
                       </thead>
@@ -56,12 +55,11 @@
 
                 <div class="card-body">
 
-                    <table class="display table table-bordered" id="clientes">
+                    <table class="display table table-bordered" id="cotfinish">
                       <thead>
                         <tr>
                           <th>Folio</th>
                           <th>Cliente</th>
-
                           <th>#</th>
                         </tr>
                       </thead>
@@ -72,14 +70,19 @@
                           <td>{{$cotizacion->id}}</td>
                           <td>{{$cotizacion->nombre}}</td>
                           <td class="text-center">
-                            <a href="" class="btn btn-sm btn-info">Ver</a>
+                            <form action="{{route('getPdf')}}" method="post">
+                                @csrf
+                                <input type="hidden" name="id" value="{{$cotizacion->id}}">
+                                <button type="submit" class="btn btn-large btn-primary">
+                                    Ver Cotización
+                                </button>
+                            </form>
                           </td>
                         </tr>
                         @endif
                         @endforeach
                       </tbody>
                     </table>
-
                 </div>
             </div>
         </div>

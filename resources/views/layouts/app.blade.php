@@ -92,6 +92,9 @@ jQuery( document ).ready(function( $ ) {
     $('#productos').DataTable();
 });
     jQuery( document ).ready(function( $ ) {
+    $('#cotfinish').DataTable();
+});
+    jQuery( document ).ready(function( $ ) {
     $('.dropdown-toggle').dropdown();
 });
 
